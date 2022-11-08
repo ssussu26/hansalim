@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한살림 장보기 :: 지구를 살리는 뜻깊은 생활실천, 한살림</title>
+
+    <link rel="stylesheet" href="js/swiper/swiper.min.css">
+    <script src="js/swiper/swiper.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <form action="join.html" method="get">
+        <fieldset>
+
+            <legend>기본정보</legend>
+            <label for="userid">아이디</label>
+            <input type="text" id="userid" maxlength="8" placeholder="아이디를 입력하세요." value="홍길동">
+            <input type="button" value="아이디 중복 확인"> <br>
+
+            <label for="userpass">비밀번호</label>
+            <input type="password" id="userpass" maxlength="16"> <br>
+            <label for="userpass">비밀번호 확인</label>
+            <input type="password" id="userpass2" maxlength="16" disabled><br>
+
+
+        </fieldset>
+        <fieldset>
+            <legend>부가정보</legend>
+            <p>
+                <span>취미생활</span>
+                <input type="checkbox" id="hobby1" checked="checked">
+                <label for="hobby1">축구</label>
+                <input type="checkbox" id="hobby2">
+                <label for="hobby2">야구</label>
+                <input type="checkbox" id="hobby3">
+                <label for="hobby3">배구</label>
+            </p>
+            <span>회원등급</span>
+            <input type="radio" id="member1" name="member" checked="checked">
+            <label for="member1">유료회원</label>
+            <input type="radio" id="member2" name="member">
+            <label for="member2">무료회원</label>
+
+            <label><input type="radio" id="member3" name="member">임시회원</label>
+            <p>
+                <span>첨부파일</span>
+                <input type="file">
+            </p>
+            <p>
+                <span>지역</span>
+                <select>
+                    <option value="">대구</option>
+                    <option value="">서울</option>
+                    <option value="">대전</option>
+                    <option value="">부산</option>
+                    <option value="">제주도</option>
+                </select>
+                <select name="" id="">
+                    <optgroup label="웹디자인">
+                        <option value="">html</option>
+                        <option value="">css</option>
+                        <option value="">js</option>
+                    </optgroup>
+                    <optgroup label="OA">
+                        <!-- 항목을 나눌때 사용 -->
+                        <option value="">한글</option>
+                        <option value="">워드</option>
+                        <option value="">엑셀</option>
+                    </optgroup>
+                </select>
+
+            </p>
+            <P>
+                <span>기타의견</span>
+                <textarea cols="30" rows="20"></textarea>
+                <!-- textarea 내에서 엔터치지 말것 글자로 취급하기 때문 -->
+            </P>
+        </fieldset>
+        <fieldset>
+            <legend>데이터전송</legend>
+            <input type="reset" value="다시작성">
+            <input type="submit" value="입력완료">
+            <input type="image" src="images/best_1.jpg">
+            <!-- 서버에 정보가 전송되는 submit -->
+
+        </fieldset>
+    </form>
+</body>
