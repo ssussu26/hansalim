@@ -1,23 +1,32 @@
-// 모든 html, css 가 준비가 된다면
-// 그때 jQuery 실행하라.
 $(document).ready(function () {
-    // 항상 js 코드의 시작자리(엔트리포인트)
-    //nice scroll
-    $(function () {
-        $(".recipe-choice-list").niceScroll({
-            cursoropacitymax: 0.5
-        });
-        $(".cate-all").niceScroll({
-            cursoropacitymax: 0.5
-        });
+
+
+    // 모달 기능
+    let modal =$('.modal');
+    let modalCon = $('.modal-content');
+    let modalClose = $('.modal-close');
+    modal.click(function(){
+        modal.stop().fadeOut();
+        $('html').css('overflow', 'auto');
+    });
+    modalCon.click(function(event){
+        // 아래로 클릭한 정보 전달 막기
+        event.stopPropagation();
+    });    
+    modalClose.click(function(){
+        modal.stop().fadeOut();
+        $('html').css('overflow', 'auto');
     });
 
-
-    // 주의사항!!!!!! 두번 이상 작성하시면. 위의 문장은 무시된다.
-    // window.onload = function(){
-    // 준비가 되면 실행 코드 작성
-    // }
-
+    // NiceScroll 
+    $(function () {
+        $(".recipe-choice-list").niceScroll({
+            cursoropacitymax: 0.5,
+        });
+        $(".cate-all").niceScroll({
+            cursoropacitymax: 0.5,
+        });
+    });
     // 카테고리 기능
     var btAll = $('.bt-all');
     var catAllWrap = $(".cate-all-wrap");
@@ -46,7 +55,7 @@ $(document).ready(function () {
     });
     // .click .mouseenter .mouseleave .hover 설명
 
-    //타이머를 이용한다.
+    // 타이머를 이용한다.
     var btAllTimer;
 
     // btAll 이라는 곳에 마우스를 영역에 걸치면
@@ -91,41 +100,38 @@ $(document).ready(function () {
     })
 
 
-    //레시피 계산기
-    //정보 div 먼저 찾기
+
+    // 레시피 계산기
+    // 정보 div
     let recipeGood = $(".recipe-good");
-    //전체 출력 개수
+    // 전체 출력 개수
     let recipeCount = recipeGood.length;
-    //전체 개수 출력자리
-    let recipeTotalTag = $(".recipe-good-total-count em");
+    // 전체 개수 출력자리
+    let recipeTotalTag = $(".recipe-good-total-count em")
     // 전체 총 금액 출력자리
     let recipeTotalPriceTag = $(".recipe-cart-bt em");
-    //금액 출력 태그
+    // 금액 출력 태그
     let recipeGoodPrice = $('.recipe-good-price b');
-    //금액만 별도로 뽑아서 관리하는 묶음 (Array)
-    //숫자들을 만들어서 index에 배치한다.
+    // 금액만 별도로 뽑아서 관리하는 묶음(Array)
+    // 숫자들을 만들어서 index 에 배치한다.
     var recipePriceArr = [];
     $.each(recipeGoodPrice, function (index, item) {
         var price = $(this).html();
-        //글자를 숫자로 변환하는 작업 필요
-        //"3,300" -> 3300숫자로 변환
-        //, 모두 제거하는 기능
+        // 글자를 숫자로 변환하는 작업 필요.
+        // "3,300" ==>  3300  숫자로 변환
+        // , 모두 제거하는 기능
         // 정규표현식은 문자열을 쉽게 변형
         price = price.replace(/\,/g, "");
-
-        //글자를 숫자로 변형시킨다.
-        //parseInt : 글자를 정수로 바꾼다
-        price = parseInt();
+        // 글자를 숫자로 바꾼다.
+        price = parseInt(price);
 
         recipePriceArr[index] = price;
     })
 
-
-    //목록 체크박스 클릭 처리 
+    // 목록 체크박스 클릭 처리
     var goodCheck = $(".recipe-good-label");
     $.each(goodCheck, function (index, item) {
-
-        //자동으로 체크되어 있어야 한다.
+        // 미리 체크가 되어 있어야 한다.
         $(this).addClass("recipe-good-label-active");
 
         $(this).click(function () {
@@ -150,11 +156,10 @@ $(document).ready(function () {
         showPriceTotal();
     });
 
-    //  출력하기
+    // , 출력하기
     function numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
-
     // 금액 출력 기능
     function showPriceTotal() {
         // 전체 선택 개수 count
@@ -177,7 +182,8 @@ $(document).ready(function () {
         // 전체 개수 출력 실행
         recipeTotalTag.html(count);
         // 전체 금액 출력 실행
-        recipeTotalPriceTag.html(money);
+        // 숫자를  , 로 연결하기
+        money = numberWithCommas(money);
         recipeTotalPriceTag.html(money);
 
         // 선택된 개수를 출력시키고 난 후에 전체 개수 보다 적으면
@@ -188,7 +194,14 @@ $(document).ready(function () {
             goodCheckAll.addClass("recipe-good-total-label-active");
         }
     }
+
+    // 무조건 최초에도 총 금액 및 개수를 출력하려고 실행
     showPriceTotal();
+
+
+
+
+
 
     // 상단 스크롤 처리
     var scY = $(window).scrollTop();
@@ -205,6 +218,7 @@ $(document).ready(function () {
             visual.removeClass("visual-active")
         }
     });
+
     // 조합원센터 토글 메뉴
     var centerMore = $('#center-more');
     var centerMoreList = $('.center-more-list');
@@ -291,18 +305,18 @@ $(document).ready(function () {
     })
     $('body').click(function () {
         family.removeClass("family-active")
-    })
+    });
 
-    //위로 부드럽게 이동하기
-    let goTop = $('.goTop');
+    // 위로 부드럽게 이동하기
+    let goTop = $('.gotop');
     goTop.click(function (e) {
-        //a 태그라서 막아준다.
+        // a 태그라서 막아준다.
         e.preventDefault();
-        //js에서는 1000이 1초임
+        // js에서는 1000 을 1초
         $('html').stop().animate({
-            screenTop: 0
+            scrollTop: 0
         }, 1000);
-    })
+    });
 
     // 이 물품 어떠세요?
     // 첫번째 줄 데이터
@@ -336,7 +350,7 @@ $(document).ready(function () {
             title: "애호박",
             unit: "1개",
             price: "1,850",
-            opt: "",
+            opt: "인기",
             link: "#"
         }
     ];
@@ -352,9 +366,10 @@ $(document).ready(function () {
     for (var i = 0; i < purposeData_1.length; i++) {
         purposeHtml_1 += ` <div class="good-box good-box-mr">
     <a href="${purposeData_1[i].link}" class="good-img">
-        <img src="images/${purposeData_1[i].pic}" alt="${purposeData_1[i].title}">`;
+        <img src="images/${purposeData_1[i].pic}" alt="${purposeData_1[i].title}">
+        `;
 
-        //옵션이 있을수도 있고 없을 수도 있다.
+        //  옵션이 있을 수도 있고 없을 수도 있다.
         if (purposeData_1[i].opt !== "") {
             purposeHtml_1 += `<span class="good-event" style="${ (purposeData_1[i].opt === "알뜰") ? "background:red;" : "" }">
             <em>${purposeData_1[i].opt}</em>
@@ -1235,22 +1250,54 @@ $(document).ready(function () {
 
         });
     });
-
 });
 
-// 멀티미디어요소(영상, 이미지, 사운드 등) 가
-// 모두 화면에 출력이 될 준비(다운로드)가 된다면 실행하라.
-window.onload = function () {
-    // 준비가 되면 실행 코드 작성
-    //  슬라이드 스크립트 
 
-    new Swiper('.sw-visual', {
+window.onload = function () {
+
+    //  비주얼 슬라이드를 재생, 멈춤을 적용
+    let swVisualPause = $('.sw-visual-pause');
+    let swVisual = new Swiper('.sw-visual', {
         loop: true,
         autoplay: {
             delay: 1000,
             disableOnInteraction: false,
         },
         speed: 500,
+        navigation: {
+            nextEl: '.sw-visual-next',
+            prevEl: '.sw-visual-prev'
+        },
+        // 슬라이드 목록
+        pagination: {
+            el: '.sw-visual-pg',
+            type: 'fraction'
+        }
+
+    });
+    // a 태그 아니고 button 라서 event.preventDefault() 필요없음.
+    swVisualPause.click(function () {
+        // 클릭을 하면 아이콘을 바꾸어준다.
+        $(this).toggleClass("sw-visual-pause-acitve");
+        // 현재 sw-visual-pause-acitve 적용되었는지를 검토
+        // state 는 true, false
+        let state = $(this).hasClass("sw-visual-pause-acitve");
+        if (state == true) {
+            // swVisual 슬라이드를 모션을 멈춘다.
+            swVisual.autoplay.stop();
+        } else {
+            // swVisual 슬라이드를 모션을 다시 재생한다.
+            swVisual.autoplay.start();
+        }
+    });
+
+    // 마우스 오버시에 슬라이드 멈추기
+    $('.sw-visual').mouseenter(function () {
+        swVisual.autoplay.stop();
+    });
+    // 마우스 아웃시에 슬라이드 재실행
+    $('.sw-visual').mouseleave(function () {
+        swVisual.autoplay.start();
     });
 
 
@@ -1258,12 +1305,33 @@ window.onload = function () {
         slidesPerView: 3,
         spaceBetween: 15,
         slidesPerGroup: 3,
+        // 슬라이드 목록
+        pagination: {
+            el: '.sw-sale-menu .sw-good-pg',
+            type: 'fraction'
+        },
+        navigation: {
+            nextEl: '.sw-sale-menu .sw-good-next',
+            prevEl: '.sw-sale-menu .sw-good-prev'
+        },
     });
+
+
     new Swiper('.sw-choice', {
         slidesPerView: 3,
         spaceBetween: 15,
         slidesPerGroup: 3,
+        // 슬라이드 목록
+        pagination: {
+            el: '.sw-choice-menu .sw-good-pg',
+            type: 'fraction'
+        },
+        navigation: {
+            nextEl: '.sw-choice-menu .sw-good-next',
+            prevEl: '.sw-choice-menu .sw-good-prev'
+        },
     });
+
     new Swiper('.sw-cate', {
         slidesPerView: 7,
         slidesPerGroup: 7,
@@ -1276,7 +1344,16 @@ window.onload = function () {
 
     new Swiper('.sw-brand', {
         slidesPerView: 3,
-        spaceBetween: 20
+        spaceBetween: 20,
+        // 슬라이드 목록
+        pagination: {
+            el: '.sw-brand-menu .sw-good-pg',
+            type: 'fraction'
+        },
+        navigation: {
+            nextEl: '.sw-brand-menu .sw-good-next',
+            prevEl: '.sw-brand-menu .sw-good-prev'
+        },
     });
 
     new Swiper('.sw-banner', {
@@ -1286,6 +1363,10 @@ window.onload = function () {
         autoplay: {
             delay: 1000,
             disableOnInteraction: false
+        },
+        navigation: {
+            nextEl: '.sw-banner-next',
+            prevEl: '.sw-banner-prev'
         }
     });
 
@@ -1293,5 +1374,14 @@ window.onload = function () {
         slidesPerView: 3,
         spaceBetween: 15,
         slidesPerGroup: 3,
+        // 슬라이드 목록
+        pagination: {
+            el: '.sw-review-menu .sw-good-pg',
+            type: 'fraction'
+        },
+        navigation: {
+            nextEl: '.sw-review-menu .sw-good-next',
+            prevEl: '.sw-review-menu .sw-good-prev'
+        },
     });
 }

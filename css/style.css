@@ -34,6 +34,62 @@ body {
     color: #000;
 }
 
+/* 소스 안내 팝업 */
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999999999;
+}
+html {
+    overflow: hidden;
+}
+.modal-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 500px;
+    height: 400px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 5px 1px 5px rgb(0 0 0 / 10%);
+}
+
+.modal-content p {
+    position: relative;
+    display: block;
+    padding: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;    
+}
+.modal-content p strong {
+    color: #f00;
+}
+
+.modal-close {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: rgb(3, 66, 82); 
+    color: #fff;
+    text-transform: uppercase;
+    border: 0;
+}
+
+
+
 /* clearfix : flaot 해제 */
 .clearfix::after {
     content: "";
@@ -43,7 +99,7 @@ body {
     clear: both;
 }
 
-/* 우측고정메뉴 */
+/* 우측고정 메뉴 */
 .fix-info-wrap {
     position: fixed;
     right: 10px;
@@ -58,9 +114,12 @@ body {
     background: #fff;
     border: 1px solid #ddd;
     border-bottom: 0px;
+
     border-radius: 18px 18px 0px 0px;
+
     padding-top: 20px;
     padding-bottom: 10px;
+
     box-shadow: 0 4px 9px 0 rgb(0 0 0 / 10%);
 }
 
@@ -129,19 +188,18 @@ body {
 
 .recent-good img {
     position: absolute;
-    top: 50%;
     left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-
 }
 
 .gotop {
     position: relative;
     display: block;
     background: #000;
-    border: 1px solid #000;
     border-radius: 0px 0px 18px 18px;
+
     text-align: center;
     padding: 10px 0;
     text-transform: uppercase;
@@ -207,7 +265,6 @@ body {
     right: 0;
     bottom: 0;
     margin-top: 0;
-
 }
 
 .section-title-thin {
@@ -227,18 +284,15 @@ body {
     display: inline-block;
 }
 
-/* 줄내림 해소하기 위해 작성 */
-
 .section-title-bar::after {
     content: '';
     position: absolute;
-    left: 2;
+    left: 2px;
     bottom: -20px;
     display: block;
     width: 20px;
     height: 2px;
     background: #707070;
-
 }
 
 .section-title-desc {
@@ -273,13 +327,11 @@ body {
     width: 288px;
     height: 412px;
     background: #fff;
-
 }
 
-/* good-box의 margin right */
 .good-box-mr {
-    /* 1200px-{288px*4) = 48 /3 칸 나눔 */
-    margin-right: calc(48px / 3);
+    /* 1200 - (288px * 4 ) = 48 / 3칸나눔 */
+    margin-right: calc(48px / 3)
 }
 
 .good-img {
@@ -296,27 +348,26 @@ body {
     top: 50%;
     width: 100%;
     height: 100%;
-    transform: translate(-50%, -50%);
-    /* 안쪽의 내용을 이동시키는 css */
-    transition: all 0.5s;
 
+    transform: translate(-50%, -50%);
+    transition: all 0.5s;
 }
 
 .good-img:hover img {
-    transform: translateX(-50%) translateY(-50%) scale(1.1);
-    /* 위에 transform: translate(-50% , -50%);랑 같다 스케일빼고 */
+    transform: translate(-50%, -50%) scale(1.1);
 }
 
 .good-event {
     position: absolute;
     right: 0;
     top: 0;
+    display: block;
     width: 50px;
     height: 50px;
-    background: #76bb42;
-    color: white;
+    background: #76bd42;
+    color: #fff;
     font-size: 14px;
-    font-weight: 600;
+    font-size: 600;
 }
 
 .good-event em {
@@ -326,19 +377,14 @@ body {
     transform: translate(-50%, -50%);
     display: block;
     font-style: normal;
-
 }
 
 .good-info {
     position: relative;
     display: block;
     height: 55px;
-    /* 두줄이 들어가도 안정적으로 하기 위하여 높이값을 부여 */
-    padding: 5px;
+    padding: 10px 15px 5px 15px;
     overflow: hidden;
-    /* 넘치는 영역을 ...으로활용하기 위하여 */
-
-
 }
 
 .good-info span {
@@ -354,7 +400,6 @@ body {
 .good-price {
     position: relative;
     display: inline-block;
-    /* 내용만큼만 커서가 잡히도록 block에서 inline-block으로 변경 */
     padding: 0 15px;
 }
 
@@ -382,16 +427,16 @@ body {
 }
 
 .good-cart:hover {
-    background-position: 0 -30px;
+    background-position: 0px -30px;
 }
 
 .section-layout {
     position: relative;
     display: block;
     overflow: hidden;
+
     width: 100%;
     height: 100%;
-
 }
 
 .section-layout-left {
@@ -400,7 +445,6 @@ body {
     float: left;
     width: calc(100% - 895px);
     height: 100%;
-
 }
 
 .section-layout-right {
@@ -409,9 +453,69 @@ body {
     float: right;
     width: 895px;
     height: 100%;
-
 }
 
+/* 제품 슬라이드 정보 레이아웃 */
+.sw-good-control {
+    position: absolute;
+    left: 0;
+    bottom: 60px;
+    display: block;
+}
+
+.sw-good-prev {
+    position: relative;
+    display: block;
+    width: 26px;
+    height: 20px;
+    background: url("../images/swiperArrP.png") no-repeat;
+    border: 0;
+    cursor: pointer;
+    font-size: 0;
+    float: left;
+}
+
+.sw-good-prev:hover {
+    background-position: 0px -20px;
+}
+
+.sw-good-pg {
+    position: relative;
+    display: block;
+    width: 110px;
+    text-align: center;
+    color: #bbb;
+    float: left;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.sw-good-pg .swiper-pagination-current {
+    font-weight: 700;
+    color: #222;
+}
+
+.sw-good-next {
+    position: relative;
+    display: block;
+    width: 26px;
+    height: 20px;
+    background: url("../images/swiperArrN.png") no-repeat;
+    border: 0;
+    cursor: pointer;
+    font-size: 0;
+    float: left;
+    float: left;
+}
+
+.sw-good-next:hover {
+    background-position: 0px -20px;
+}
+
+.review .sw-good-control,
+.brand .sw-good-control {
+    bottom: 0px;
+}
 
 /* 전체레이아웃 */
 .wrap {
@@ -438,8 +542,8 @@ body {
     z-index: 999999;
 }
 
-.header-active{
-    top:-80px;
+.header-active {
+    top: -80px;
 }
 
 .header-top {
@@ -487,8 +591,9 @@ body {
     display: block;
     float: right;
 
+    /* clearfix로 처리한다. */
     /* overflow: hidden; */
-    /* .clearfix로 처리한다 */
+
     padding-top: 35px;
 }
 
@@ -503,24 +608,19 @@ body {
     position: relative;
     display: block;
     float: left;
-    /* overflow: hidden; */
-    /* li의 float 때문에 높이가 잡히지 않는다. */
-    
-    /* 높이를 주는 것은 좋지 않다 
-    .clearfix를 사용하는게 좋다.
-    */
+
     margin-top: 4px;
     z-index: 1;
 }
 
-.member-list > li {
+.member-list>li {
     position: relative;
     display: block;
     float: left;
     padding: 0 10px;
 }
 
-.member-list > li::after {
+.member-list>li::after {
     content: '';
     position: absolute;
     right: 0;
@@ -531,19 +631,19 @@ body {
     background: #bababa;
 }
 
-.member-list > li:last-child::after {
+.member-list>li:last-child::after {
     display: none;
 }
 
-.member-list > li:first-child {
+.member-list>li:first-child {
     padding-left: 0;
 }
 
-.member-list > li:last-child {
+.member-list>li:last-child {
     padding-right: 0;
 }
 
-.member-list > li > a {
+.member-list>li>a {
     position: relative;
     display: block;
     font-size: 13px;
@@ -581,7 +681,7 @@ body {
     box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
 }
 
-.center-more-list-active{
+.center-more-list-active {
     display: block !important;
 }
 
@@ -604,18 +704,17 @@ body {
     color: #666;
 }
 
-.center-more-list li a:hover{
+.center-more-list li a:hover {
     color: #000;
     text-decoration: underline;
 }
+
 
 .header-bottom {
     position: relative;
     display: block;
     height: calc(49px - 1px);
 
-    /* overflow: hidden; 
-    이거 대신 clearfix 적용해야함 */
 }
 
 .header-bottom-left {
@@ -623,8 +722,6 @@ body {
     display: block;
     float: left;
 
-    /* overflow: hidden; 
-    clearfix 로 변경해야함 */
     padding-top: 14px;
 }
 
@@ -638,25 +735,25 @@ body {
     position: relative;
     display: block;
 
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
-.gnb li {
+.gnb>li {
     position: relative;
     display: block;
     float: left;
     padding: 0 15px;
 }
 
-.gnb li:first-child {
+.gnb>li:first-child {
     padding-left: 0;
 }
 
-.gnb li:last-child {
+.gnb>li:last-child {
     padding-right: 0;
 }
 
-.gnb li a {
+.gnb>li>a {
     position: relative;
     display: block;
     font-size: 17px;
@@ -665,7 +762,7 @@ body {
     font-weight: 500;
 }
 
-.gnb li a:hover {
+.gnb>li>a:hover {
     color: #76bd42;
 }
 
@@ -678,8 +775,8 @@ body {
 .icon-dot::after {
     content: '';
     position: absolute;
-    right: -5px;
-    top: 0px;
+    right: -7px;
+    top: -3px;
     display: block;
     width: 5px;
     height: 5px;
@@ -716,10 +813,10 @@ body {
     left: 50%;
     transform: translateX(-50%);
     top: 25px;
-    display: none;    
+    display: none;
     background: #fff;
     border: 1px solid #ddd;
-    box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16% );
+    box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
     padding: 20px;
 }
 
@@ -732,6 +829,7 @@ body {
     display: block;
     margin-bottom: 15px;
 }
+
 .event-list li:last-child {
     margin-bottom: 0;
 }
@@ -744,6 +842,7 @@ body {
     font-weight: 400;
     color: #666;
 }
+
 .event-list li a:hover {
     color: #000;
     text-decoration: underline;
@@ -780,7 +879,7 @@ body {
     background-position: 0px -6px !important;
 }
 
-.gnb-more-list{
+.gnb-more-list {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -792,14 +891,14 @@ body {
     box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
 }
 
-.gnb-more-list-active{
-    display: block  !important;
+.gnb-more-list-active {
+    display: block !important;
 }
 
-.gnb-more-list li{
-position: relative;
-display: block;
-margin-bottom: 15px;
+.gnb-more-list li {
+    position: relative;
+    display: block;
+    margin-bottom: 15px;
 }
 
 .gnb-more-list li:last-child {
@@ -815,7 +914,7 @@ margin-bottom: 15px;
     color: #666;
 }
 
-.gnb-more-list li a:hover{
+.gnb-more-list li a:hover {
     color: #000;
     text-decoration: underline;
 }
@@ -825,26 +924,53 @@ margin-bottom: 15px;
     position: absolute;
     left: 0;
     top: 50px;
-    
+
     display: block;
     visibility: hidden;
 
     width: 260px;
     overflow: hidden;
 
-    height: calc(100vh - 190px);    
-    background: #fff;    
+    height: calc(100vh - 190px);
+    background: #fff;
     border: 1px solid #ddd;
     box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
 
     transition: width 0.5s;
 }
 
-.cate-all-wrap-visible{
+.cate-all-wrap-visible {
     visibility: visible;
 }
+
 .cate-all-wrap-active {
     width: 520px;
+}
+
+.box {
+    position: relative;
+    display: block;
+    width: 400px;
+    height: 300px;
+    background: red;
+    padding-top: 10px;
+    margin: 0 auto;
+}
+
+.box-bt {
+    position: relative;
+    display: block;
+    width: 200px;
+    height: 50px;
+    background: yellow;
+    margin: 20px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.box-bt:hover {
+    background-color: black;
+    color: #fff;
 }
 
 
@@ -857,13 +983,14 @@ margin-bottom: 15px;
     width: 260px;
     height: 100%;
     overflow: hidden;
-    background: #fff;    
+    background: #fff;
 }
 
 .cateList {
     position: relative;
     display: block;
 }
+
 .cateList li {
     position: relative;
     display: block;
@@ -871,18 +998,22 @@ margin-bottom: 15px;
     font-weight: 500;
     line-height: 40px;
 }
+
 .cateList li a {
     position: relative;
     display: block;
     padding: 0 20px;
     color: #000;
 }
+
 .cateList li:hover {
     background: #f9f9f9;
 }
+
 .cateList li:hover a {
     color: #76bd42;
 }
+
 .cateList li:hover a::after {
     content: "";
     position: absolute;
@@ -900,7 +1031,8 @@ margin-bottom: 15px;
     display: block;
     padding: 0 20px;
 }
-.themaList li {    
+
+.themaList li {
     position: relative;
     display: block;
     font-size: 15px;
@@ -908,17 +1040,21 @@ margin-bottom: 15px;
     line-height: 40px;
     border-bottom: 1px solid #e9e9e9;
 }
+
 .themaList li:first-child {
     border-top: 1px solid #666;
 }
+
 .themaList li:last-child {
     border-bottom: 1px solid #666;
 }
-.themaList li a {  
+
+.themaList li a {
     position: relative;
     display: block;
     color: #000;
 }
+
 .themaList li a::after {
     content: "";
     position: absolute;
@@ -930,16 +1066,20 @@ margin-bottom: 15px;
     background: url('../images/icoGnbArr1.png') no-repeat;
     background-position: 0px 0px;
 }
+
 .themaList li:hover a {
     color: #76bd42;
 }
+
 .themaList li:hover a::after {
     background-position: 0px -10px;
 }
+
 .bullet span {
     position: relative;
     display: inline-block;
 }
+
 .bullet span::after {
     content: "";
     position: absolute;
@@ -955,19 +1095,22 @@ margin-bottom: 15px;
     position: relative;
     display: block;
 }
-.deliList li{
+
+.deliList li {
     position: relative;
     display: block;
     font-size: 15px;
     font-weight: 500;
     line-height: 40px;
 }
-.deliList li a{
+
+.deliList li a {
     position: relative;
     display: block;
     color: #666;
     padding: 0 20px;
 }
+
 .deliList li:hover a {
     color: #76bd42;
 }
@@ -983,16 +1126,16 @@ margin-bottom: 15px;
     background: url('../images/icoGnbArr1.png') no-repeat;
     background-position: 0px 0px;
 }
+
 .deliList li:hover a::after {
     background-position: 0px -10px;
 }
 
-
 /* 카테고리 서브 상품 출력 */
-.cate-sub-all{
+.cate-sub-all {
     position: absolute;
     left: 260px;
-    top: 0px;
+    top: 0;
     display: block;
     width: 260px;
     height: 100%;
@@ -1004,27 +1147,31 @@ margin-bottom: 15px;
     position: absolute;
     left: 0;
     top: 0;
-    display:  block;
+    display: none;
     padding: 0 25px;
 }
-.dep2 li {    
+
+.dep2 li {
     position: relative;
-    display:  block;
+    display: block;
     font-size: 15px;
     font-weight: 400;
     line-height: 40px;
 }
-.dep2 li a {    
+
+.dep2 li a {
     position: relative;
-    display:  block;
+    display: block;
     color: #000;
 }
-.dep2 li:hover a {    
+
+.dep2 li:hover a {
     position: relative;
-    display:  block;
+    display: block;
     color: #76bd42;
     text-decoration: underline;
 }
+
 
 .header-bottom-right {
     position: relative;
@@ -1032,8 +1179,7 @@ margin-bottom: 15px;
     float: right;
 
     overflow: hidden;
-
-    padding-right: 10px;
+    padding-right: 5px;
 }
 
 .search-form {
@@ -1082,7 +1228,6 @@ margin-bottom: 15px;
     background: url('../images/btnCart.png') no-repeat center;
     font-size: 0;
     margin-top: 8px;
-
 }
 
 .bucket-count {
@@ -1097,14 +1242,13 @@ margin-bottom: 15px;
     color: #fff;
     font-size: 11px;
     font-weight: 700;
-    background: #76bb42;
+    background: #76bd42;
     border-radius: 50%;
-    /* 원으로 만들어주는 것 */
-
 }
 
+
 /* 비주얼 */
-.visual { 
+.visual {
     position: relative;
     display: block;
     height: 410px;
@@ -1113,7 +1257,7 @@ margin-bottom: 15px;
     margin-top: 130px;
 }
 
-.visual-active{
+.visual-active {
     margin-top: 50px;
 }
 
@@ -1179,6 +1323,99 @@ margin-bottom: 15px;
     background-size: cover;
 }
 
+/* visual slide 관련 */
+.sw-visual-prev {
+    position: absolute;
+    left: calc(50% - 600px);
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    width: 64px;
+    height: 64px;
+    background: rgba(0, 0, 0, 0.0) url("../images/visualArrP.png") no-repeat;
+    background-position: 0px -64px;
+    border: 0;
+    cursor: pointer;
+    font-size: 0;
+    border-radius: 50%;
+}
+
+.sw-visual-prev:hover {
+    background: rgba(0, 0, 0, 0.2) url("../images/visualArrP.png") no-repeat;
+    background-position: 0px 0px;
+}
+
+.sw-visual-next {
+    position: absolute;
+    left: calc(50% + 600px);
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    width: 64px;
+    height: 64px;
+    background: rgba(0, 0, 0, 0.0) url("../images/visualArrN.png") no-repeat;
+    background-position: 0px -64px;
+    border: 0;
+    cursor: pointer;
+    font-size: 0;
+    border-radius: 50%;
+}
+
+.sw-visual-next:hover {
+    background: rgba(0, 0, 0, 0.2) url("../images/visualArrN.png") no-repeat;
+    background-position: 0px 0px;
+}
+
+/* 비주얼 슬라이드 정보 출력 */
+.sw-visual-control {
+    position: absolute;
+    left: calc(50% - 600px);
+    bottom: 50px;
+    display: block;
+    z-index: 999;
+    /* inline-blokc 은 글자로 인식되므로 줄내림 막음 */
+    white-space: nowrap;
+}
+
+.sw-visual-pause {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: url("../images/visualPlay.png") no-repeat;
+    border: 0;
+    cursor: pointer;
+}
+
+/* 상태에 따라서 addClass/removeClass  */
+.sw-visual-pause-acitve {
+    background-position: 0px -30px;
+}
+
+.sw-visual-pg {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 30px;
+    background: url("../images/visualNum.png") no-repeat;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 700;
+    line-height: 30px;
+
+    text-align: center;
+}
+
+.sw-visual-pop {
+    position: relative;
+    display: inline-block;
+    width: 29px;
+    height: 30px;
+    background: url("../images/visualMore.png") no-repeat;
+    font-size: 0;
+    vertical-align: 30px;
+}
+
 /* 추천상품 */
 .purpose {
     position: relative;
@@ -1209,6 +1446,7 @@ margin-bottom: 15px;
     overflow: hidden;
     margin-top: 30px;
 }
+
 .new-left {
     position: relative;
     display: block;
@@ -1216,6 +1454,7 @@ margin-bottom: 15px;
     width: 590px;
     width: calc(50% - 10px);
 }
+
 .new-left-img {
     position: relative;
     display: block;
@@ -1224,12 +1463,14 @@ margin-bottom: 15px;
     overflow: hidden;
     margin-bottom: 20px;
 }
+
 .new-left-img img {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
+
 .new-left-name {
     position: relative;
     display: block;
@@ -1266,6 +1507,7 @@ margin-bottom: 15px;
     display: block;
     overflow: hidden;
 }
+
 .new-list li {
     position: relative;
     display: block;
@@ -1274,18 +1516,21 @@ margin-bottom: 15px;
 
     overflow: hidden;
 }
+
 .new-list li:nth-child(2n+1) .new-list-good {
     float: left;
-} 
+}
+
 .new-list li:nth-child(2n) .new-list-good {
     float: right;
-} 
+}
 
 .new-list-good {
     position: relative;
     display: block;
     width: 288px;
 }
+
 .new-list-img {
     position: relative;
     display: block;
@@ -1294,14 +1539,16 @@ margin-bottom: 15px;
     overflow: hidden;
     margin-bottom: 10px;
 }
+
 .new-list-img img {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 100%;  
-    transition: transform 0.5s;  
+    width: 100%;
+    transition: transform 0.5s;
 }
+
 .new-list-img:hover img {
     transform: translate(-50%, -50%) scale(1.2);
 }
@@ -1322,7 +1569,6 @@ margin-bottom: 15px;
 }
 
 
-
 /* 추천상품 */
 .choice {
     position: relative;
@@ -1331,7 +1577,6 @@ margin-bottom: 15px;
     background: #fff8fa;
 }
 
-/* 인기상품 */
 /* 인기상품 */
 .popular {
     position: relative;
@@ -1436,7 +1681,6 @@ margin-bottom: 15px;
     background-position: 0 -20px;
 }
 
-
 /* 브랜드상품 */
 .brand {
     position: relative;
@@ -1510,13 +1754,48 @@ margin-bottom: 15px;
 }
 
 
-
 /* 배너 */
 .banner {
     position: relative;
     display: block;
     height: 350px;
     background: #ffffff;
+}
+
+.sw-banner-prev {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 19px;
+    height: 34px;
+    background: url("../images/banner_arrow.png");
+    background-position: 0px -34px;
+    border: 0;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.sw-banner-prev:hover {
+    background-position: 0px 0px;
+}
+
+.sw-banner-next {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%) rotateY(180deg);
+    width: 19px;
+    height: 34px;
+    background: url("../images/banner_arrow.png");
+    background-position: 0px -34px;
+    border: 0;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.sw-banner-next:hover {
+    background-position: 0px 0px;
 }
 
 /* 레시피 */
@@ -1556,11 +1835,9 @@ margin-bottom: 15px;
     left: 50%;
     top: 50%;
     display: block;
-
     /* 내용만 이동 */
     transform: translate(-50%, -50%);
     height: 100%;
-
 }
 
 .recipe-link-cate {
@@ -1583,8 +1860,8 @@ margin-bottom: 15px;
     left: 155px;
     bottom: 0;
     display: block;
-    width: 490px;
     height: 155px;
+    width: 490px;
     background: rgba(255, 255, 255, 0.75);
     padding: 40px 30px;
 }
@@ -1594,7 +1871,6 @@ margin-bottom: 15px;
     display: block;
     font-size: 25px;
     color: #333;
-
 }
 
 .recipe-link-info-desc {
@@ -1617,7 +1893,6 @@ margin-bottom: 15px;
     position: relative;
     display: block;
     height: 270px;
-
 }
 
 .recipe-choice-list {
@@ -1625,7 +1900,6 @@ margin-bottom: 15px;
     display: block;
     height: 240px;
     overflow: hidden;
-
 }
 
 .recipe-choice-list-good {
@@ -1657,12 +1931,14 @@ margin-bottom: 15px;
     left: 0;
     top: 50%;
     transform: translateY(-50%);
+
     display: block;
     width: 18px;
     height: 18px;
     background: url('../images/inpCheck.png') no-repeat;
     background-position: 0px -18px;
     font-size: 0;
+
     cursor: pointer;
 }
 
@@ -1673,10 +1949,8 @@ margin-bottom: 15px;
 .recipe-good-link {
     position: relative;
     display: block;
-    height: 70px;
+    height: 100%;
     padding-left: 90px;
-    font-size: 15px;
-    color: #000;
 }
 
 .recipe-good-img {
@@ -1706,7 +1980,6 @@ margin-bottom: 15px;
     font-size: 20px;
     color: #000;
     font-weight: 500;
-
 }
 
 .recipe-good-price em {
@@ -1714,7 +1987,6 @@ margin-bottom: 15px;
     font-size: 13px;
     font-weight: 300;
 }
-
 
 .recipe-choice-bottom {
     position: relative;
@@ -1749,7 +2021,7 @@ margin-bottom: 15px;
     cursor: pointer;
 }
 
-.recipe-good-total-label:active {
+.recipe-good-total-label-active {
     background-position: 0px -36px;
 }
 
@@ -1768,27 +2040,27 @@ margin-bottom: 15px;
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 100%;
     display: block;
+    width: 100%;
     text-align: center;
     font-size: 20px;
     color: #000;
     background: #fff;
-    height: 60px;
-    /* line-height: calc(60px - 2px); */
-    line-height: 58px;
     border: 1px solid #bbb;
+    height: 60px;
+    /* line-height: calc(60px - 1px -1px);
+    line-height: calc(60px - 2px); */
+    line-height: 58px;
     transition: background 0.5s;
 }
 
 .recipe-cart-bt:hover {
     background: #f9f9f9;
-
 }
 
 .recipe-cart-bt em {
-    font-style: normal;
     font-weight: 500;
+    font-style: normal;
 }
 
 /* 상품후기 */
@@ -1807,8 +2079,8 @@ margin-bottom: 15px;
 .review-box {
     position: relative;
     display: block;
-    height: 233px;
     width: 288px;
+    height: 233px;
     background: #fff;
     padding: 28px 22px;
 }
@@ -1854,7 +2126,7 @@ margin-bottom: 15px;
     display: block;
     width: 18px;
     height: 18px;
-    background: url('../images/icoRating.png')no-repeat center;
+    background: url('../images/icoRating.png') no-repeat center;
 }
 
 .review-box-info-img {
@@ -1882,7 +2154,6 @@ margin-bottom: 15px;
     margin-bottom: 15px;
     font-size: 13px;
     color: #000;
-
 }
 
 .review-box-user {
@@ -1910,9 +2181,9 @@ margin-bottom: 15px;
 .community-box {
     position: relative;
     display: block;
-    float: left;
-    height: 180px;
     width: calc(100% / 3);
+    height: 180px;
+    float: left;
     border-right: 1px solid #e5e5e5;
 }
 
@@ -1951,8 +2222,6 @@ margin-bottom: 15px;
 .news-menu a:last-child {
     margin-right: 0;
 }
-
-/* 메뉴가 몇개가 추가되더라도 마지막 옆에는 공백이도록 */
 
 .news-menu a:last-child::after {
     display: none;
@@ -2000,13 +2269,12 @@ margin-bottom: 15px;
     display: block;
     float: left;
     width: 255px;
-    font-size: 13px;
-    color: #000;
-
-    /* 한줄말줄임 */
+    /* 한줄 말줄임 */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 13px;
+    color: #000;
 }
 
 .news-date {
@@ -2015,19 +2283,18 @@ margin-bottom: 15px;
     float: right;
     font-size: 13px;
     color: #999;
-
 }
 
 .cs-wrap {
     position: relative;
     display: block;
+    width: 320px;
+    margin: 0 auto;
 }
 
 .cs-list {
     position: relative;
     display: block;
-    width: 320px;
-    margin: 0 auto;
 }
 
 .cs-list li {
@@ -2087,7 +2354,7 @@ margin-bottom: 15px;
 
 .cs-mail a {
     position: relative;
-    display: inline;
+    display: inline-block;
     color: #000;
     font-weight: 500;
 }
@@ -2095,8 +2362,8 @@ margin-bottom: 15px;
 .cs-etc {
     position: relative;
     display: block;
-    font-size: 13px;
     color: #000;
+    font-size: 13px;
 }
 
 .qa-wrap {
@@ -2150,7 +2417,7 @@ margin-bottom: 15px;
     transform: translateY(-50%);
     width: 8px;
     height: 12px;
-    background: url('../images/icoFaq.png') no-repeat center;
+    background: url("../images/icoFaq.png") no-repeat center;
 }
 
 /* 하단 */
@@ -2178,13 +2445,13 @@ margin-bottom: 15px;
     display: block;
     width: 100%;
     background: #f5f5f5;
-    padding: 25px 0; 
-    transition: top 0.5s;   
+    padding: 25px 0;
+    transition: top 0.5s;
 }
 
 
-.family-active {  
-     /* 이 값은 조절 예정  */
+.family-active {
+    /* 이 값은 조절 예정  */
     top: -290px;
 }
 
@@ -2192,12 +2459,14 @@ margin-bottom: 15px;
     position: relative;
     display: block;
 }
-.family-list > li {
+
+.family-list>li {
     position: relative;
     display: block;
     float: left;
     width: calc(100% / 5);
 }
+
 .family-list-title {
     position: relative;
     display: block;
@@ -2207,14 +2476,17 @@ margin-bottom: 15px;
     color: #76bd42;
     margin-bottom: 25px;
 }
+
 .family-list ul {
     position: relative;
     display: block;
 }
+
 .family-list ul li {
     position: relative;
     display: block;
 }
+
 .family-list ul li a {
     position: relative;
     display: block;
